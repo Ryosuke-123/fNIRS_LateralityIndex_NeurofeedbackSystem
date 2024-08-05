@@ -1,0 +1,2 @@
+rootProject.name = "ShamfeedbackApp1"
+include ':app',':ExBrainSdkAndroidLibrary'

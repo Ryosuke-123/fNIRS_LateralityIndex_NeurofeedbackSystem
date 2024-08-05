@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28316731-6c88-4803-ab0d-0168eef5c9ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SatoLab/NF_Exp_2023/NeurofeedbackApp1" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -68,9 +68,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="92" key="FileChooserDialogImpl" timestamp="1721096700778">
+    <state x="421" y="92" key="FileChooserDialogImpl" timestamp="1722843658500">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
+    <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672/0.-1620.1920.1080@0.0.1280.672" timestamp="1722843658500" />
     <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1721096700778" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1721096643077">
       <screen x="0" y="0" width="1280" height="672" />
