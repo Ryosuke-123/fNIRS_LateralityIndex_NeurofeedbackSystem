@@ -1,0 +1,2 @@
+rootProject.name = "dartsApp1"
+include ':app',':ExBrainSdkAndroidLibrary'
