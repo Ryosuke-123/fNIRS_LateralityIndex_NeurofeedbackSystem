@@ -12,6 +12,10 @@ In order to allow you to re-analyze the data obtained from our NF training exper
 ・NF Training Data: [this releases page](). <br>
 ・Analysis Scripts: [this releases page](). <br>
 
+## For who want to change our NF App
+In order to change our NF app, you need to purchase "ExBrainSdkAndroidLibrary" provided by NeU Inc. The company's website can be accessed at the following link. <br>
+・NeU Inc: [this page](https://neu-brains.net/). <br>
+
 ### For Developers
 This project requires ExBrainSdkAndroidLibrary. This library can be purchased from NeU Inc (https://neu-brains.net/).
 
