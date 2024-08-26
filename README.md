@@ -25,10 +25,10 @@ The asymmetry in prefrontal cortex (PFC) activation has been noted as a potentia
 <br>
 Our system is characterized by a 2-channel wearable device, a robust asymmetry calculation algorithm against noise, auditory feedback system that can be used in various situation. <br>
 
-### Publications
+## Publications
 
 
-### License
+## License
 This project is licensed by <br>
 ・Apache License, Version 2.0 <br>
 ・MIT License <br>
