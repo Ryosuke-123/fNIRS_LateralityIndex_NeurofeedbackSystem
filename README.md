@@ -2,14 +2,12 @@
 
 ![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
-## Getting Started
-
-### For who want to use this NF App
+## For who want to use this NF App
 In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The APK files for each app can be downloaded from the links below. <br>
 ・NF App: [this releases page](). <br>
 ・Placebo App: [this releases page](). <br>
 
-### For who want to re-analyze our NF training Data
+## For who want to re-analyze our NF training Data
 In order to allow you to re-analyze the data obtained from our NF training experiment, we have shared the data in public repository (OpenNeuro). These data and our analysis scripts can be downloaded from the links below. <br>
 ・NF Training Data: [this releases page](). <br>
 ・Analysis Scripts: [this releases page](). <br>
