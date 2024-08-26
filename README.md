@@ -4,20 +4,19 @@
 
 ## Getting Started
 
-### Installation
-Clone the repo:
-
 ### Download
-Download fNIRS-based NF System for Android fomr the releases page.
-
-### Build Environment
-
+Download fNIRS-based NF System for Android from the releases page.
 
 ### Download Dataset
+・Neurofeedback Training Data: [Data@OpenNeuro]().
 
+### For who want to use this NF App
+In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The APK files for each app can be downloaded from the links below. <br>
+・NF App: [this releases page](). <br>
+・Placebo App: [this releases page](). <br>
 
 ### For Developers
-This project requires 
+This project requires ExBrainSdkAndroidLibrary. This library can be purchased from NeU Inc (https://neu-brains.net/).
 
 ### For Researchers
 Functionl Near-Infrared Spectroscopy (fNIRS) is noninvasive neuroimaging technique that measure hemodynamic signals related to functional activation in the brain. It is used in reseach in various fields such as neuroscience, psychology, and developmental scinece. <br>
