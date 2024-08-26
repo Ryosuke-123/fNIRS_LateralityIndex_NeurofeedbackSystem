@@ -1,4 +1,6 @@
-![](https://img.shields.io/badge/license-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
+### FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry
+
+![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
 ## Getting Started
 
@@ -27,6 +29,6 @@ Our system is characterized by a 2-channel wearable device, a robust asymmetry c
 
 
 ### License
-This project is licensed by
+This project is licensed by <br>
 ・Apache License, Version 2.0
 ・MIT License
