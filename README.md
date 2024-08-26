@@ -4,12 +4,6 @@
 
 ## Getting Started
 
-### Download
-Download fNIRS-based NF System for Android from the releases page.
-
-### Download Dataset
-・Neurofeedback Training Data: [Data@OpenNeuro]().
-
 ### For who want to use this NF App
 In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The APK files for each app can be downloaded from the links below. <br>
 ・NF App: [this releases page](). <br>
