@@ -15,6 +15,11 @@ In order to conduct a placebo-controlled experiment for you, we developed two ap
 ・NF App: [this releases page](). <br>
 ・Placebo App: [this releases page](). <br>
 
+### For who want to re-analyze our NF training Data
+In order to allow you to re-analyze the data obtained from our NF training experiment, we have shared the data in public repository (OpenNeuro). These data and our analysis scripts can be downloaded from the links below. <br>
+・NF Training Data: [this releases page](). <br>
+・Analysis Scripts: [this releases page](). <br>
+
 ### For Developers
 This project requires ExBrainSdkAndroidLibrary. This library can be purchased from NeU Inc (https://neu-brains.net/).
 
