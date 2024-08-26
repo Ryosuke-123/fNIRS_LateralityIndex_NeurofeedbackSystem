@@ -1,4 +1,4 @@
-### FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry
+# FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry
 
 ![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
