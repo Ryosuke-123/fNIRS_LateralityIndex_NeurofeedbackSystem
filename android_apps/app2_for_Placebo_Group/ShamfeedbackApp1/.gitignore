@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Ignore paid SDK portion
+ExBrainSdkAndroidLibrary/ExBrainSdkAndroidLibrary_1.1.8.aar
+ExBrainSdkAndroidLibrary/build.gradle
