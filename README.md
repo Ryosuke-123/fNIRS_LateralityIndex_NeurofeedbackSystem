@@ -30,7 +30,7 @@ In order to conduct a placebo-controlled experiment for you, we developed two ap
 #### 3. Navigate Through the App
 The app consists of 4 main screens. Here's a brief overview of each: <br>
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/e05f45ad-77f2-41e0-8b1d-6501188fd3c0" width="400px">
+    <img src="https://github.com/user-attachments/assets/e05f45ad-77f2-41e0-8b1d-6501188fd3c0" width="600px">
 </p>
 
 ##### Screen 1: Home
