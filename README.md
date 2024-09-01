@@ -27,6 +27,11 @@ In order to change our NF app, you need to purchase "ExBrainSdkAndroidLibrary" p
 
 ## Publications
 
+## Libraries and Licenses
+This projects uses the following libraries. Please ensure that you comply with their respective licenses: <br>
+
+- [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
+- [StateProgressBar](https://github.com/kofigyan/StateProgressBar) - Licensed under the [Apache License, Verision 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 
 ## License
 This project is licensed by <br>

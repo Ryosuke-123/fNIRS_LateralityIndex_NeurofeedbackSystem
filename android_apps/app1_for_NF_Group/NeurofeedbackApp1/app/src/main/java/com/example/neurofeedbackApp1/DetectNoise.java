@@ -51,13 +51,13 @@ public class DetectNoise
         leftBrainValuePost2  = leftBrainValuePre2;
         rightBrainValuePost2 = rightBrainValuePre2;
 
-        // 体動アーチファクトの判定(左脳血流)
+        // Motion Artifact Detection (Left-PFC)
         // 200ms間隔で0.2mMmmの変化があれば体動と判断する
         if (Math.abs(leftBrainChange) > 0.2)
         {
             return 1;
         }
-        // 体動アーチファクトの判定(右脳血流)
+        // Motion Artifact Detection (Right-PFC)
         // 200ms間隔で0.2mMmmの変化があれば体動と判断する
         else if (Math.abs(rightBrainChange) > 0.2)
         {
