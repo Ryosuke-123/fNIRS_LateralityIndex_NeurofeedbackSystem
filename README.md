@@ -1,6 +1,6 @@
 ## <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="40px"> FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="40px">
 
-![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
+![](https://img.shields.io/badge/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
 ## Introduction
 Functionl Near-Infrared Spectroscopy (fNIRS) is noninvasive neuroimaging technique that measure hemodynamic signals related to functional activation in the brain. It is used in reseach in various fields such as neuroscience, psychology, and developmental scinece. <br>
@@ -36,9 +36,8 @@ This projects uses the following libraries. Please ensure that you comply with t
 - [StateProgressBar](https://github.com/kofigyan/StateProgressBar) - Licensed under the [Apache License, Verision 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 
 ## License
-This project is licensed by <br>
-・Apache License, Version 2.0 <br>
-・MIT License <br>
+This project is licensed by: <br>
+- Apache License, Version 2.0 <br>
 
 ## Contact
 For any inquiries or feedback, please contact: <br>
