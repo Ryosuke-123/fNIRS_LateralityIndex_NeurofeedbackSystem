@@ -1,4 +1,4 @@
-## FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry
+## ![image](https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86) FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry ![image](https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86)
 
 ![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
@@ -30,6 +30,8 @@ In order to change our NF app, you need to purchase "ExBrainSdkAndroidLibrary" p
 ## Libraries and Licenses
 This projects uses the following libraries. Please ensure that you comply with their respective licenses: <br>
 
+- [Android Support Libraries](https://developer.android.com/topic/libraries/support-library?hl=en) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
+- [SteamSupport (android-retrofuture)](https://sourceforge.net/projects/streamsupport/) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 - [StateProgressBar](https://github.com/kofigyan/StateProgressBar) - Licensed under the [Apache License, Verision 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 
