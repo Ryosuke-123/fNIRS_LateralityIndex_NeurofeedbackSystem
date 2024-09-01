@@ -39,3 +39,8 @@ This projects uses the following libraries. Please ensure that you comply with t
 This project is licensed by <br>
 ・Apache License, Version 2.0 <br>
 ・MIT License <br>
+
+## Contact
+For any inquiries or feedback, please contact: <br>
+- Lab Member: [Ryosuke Hiyama](mf23095@shibaura-it.ac.jp) <br>
+- Lab Leader: [Hiroki Sato](hiroki@shibaura-it.ac.jp) <br>
