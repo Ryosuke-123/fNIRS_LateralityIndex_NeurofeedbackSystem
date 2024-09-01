@@ -13,17 +13,28 @@ Our system is characterized by a 2-channel wearable device, a robust asymmetry c
 
 ## For who want to use this NF App
 In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The APK files for each app can be downloaded from the links below. <br>
-・NF App: [this releases page](). <br>
-・Placebo App: [this releases page](). <br>
+- NF App: [this releases page](). <br>
+- Placebo App: [this releases page](). <br>
+
+### How to Use
+#### 1. Install the App
+- **Download the APK file** for the desired app from the links above. <br>
+- **Transfer the APK file** to your Android device if downloaded on a computer. <br>
+- **Open the APK file** to your Android device to start the installation process. <br>
+- **Follow the on-screen instructions** to complete the installation. <br>
+
+#### 2. Launch the App
+- **Find the app icon** on your device's home screen or app drawer. <br>
+- **Tap the icon** to open the app.
 
 ## For who want to re-analyze our NF training Data
 In order to allow you to re-analyze the data obtained from our NF training experiment, we have shared the data in public repository (OpenNeuro). These data and our analysis scripts can be downloaded from the links below. <br>
-・NF Training Data: [this releases page](). <br>
-・Analysis Scripts: [this releases page](). <br>
+- NF Training Data: [this releases page](). <br>
+- Analysis Scripts: [this releases page](). <br>
 
 ## For who want to change our NF App
 In order to change our NF app, you need to purchase "ExBrainSdkAndroidLibrary" provided by NeU Inc. The company's website can be accessed at the following link. <br>
-・NeU Inc: [this page](https://neu-brains.net/). <br>
+- [Neu Inc](https://neu-brains.net/). <br>
 
 ## Publications
 
@@ -34,6 +45,7 @@ This projects uses the following libraries. Please ensure that you comply with t
 - [SteamSupport (android-retrofuture)](https://sourceforge.net/projects/streamsupport/) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 - [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
 - [StateProgressBar](https://github.com/kofigyan/StateProgressBar) - Licensed under the [Apache License, Verision 2.0](https://www.apache.org/licenses/LICENSE-2.0). <br>
+- [DataViz](https://github.com/povilaskarvelis/DataViz) - Licensed under the [MIT License](https://opensource.org/license/MIT). <br>
 
 ## License
 This project is licensed by: <br>
