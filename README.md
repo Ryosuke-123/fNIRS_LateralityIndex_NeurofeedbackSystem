@@ -27,6 +27,18 @@ In order to conduct a placebo-controlled experiment for you, we developed two ap
 - **Find the app icon** on your device's home screen or app drawer. <br>
 - **Tap the icon** to open the app.
 
+#### 3. Navigate Through the App
+The app consists of 4 main screens. Here's a brief overview of each: <br>
+<img src="https://github.com/user-attachments/assets/e05f45ad-77f2-41e0-8b1d-6501188fd3c0" width="300px"> 
+
+##### Screen 1: Home
+
+##### Screen 2: Experiment Setting
+
+##### Screen 3: Device Connecting
+
+##### Screen 4: Start Experiment
+
 ## For who want to re-analyze our NF training Data
 In order to allow you to re-analyze the data obtained from our NF training experiment, we have shared the data in public repository (OpenNeuro). These data and our analysis scripts can be downloaded from the links below. <br>
 - NF Training Data: [this releases page](). <br>
