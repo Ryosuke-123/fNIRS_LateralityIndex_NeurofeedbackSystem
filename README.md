@@ -1,4 +1,4 @@
-## <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="50px"> FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="50px">
+## <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="40px"> FNIRS-Based Neurofeeddback System Using Prefrontal Asymmetry <img src="https://github.com/user-attachments/assets/b08b4b25-d8b4-496e-a42b-170903b08d86" width="40px">
 
 ![](https://img.shields.io/badge/License-MIT/Apache2-red) ![](https://img.shields.io/badge/AndroidStudio-green) ![](https://img.shields.io/badge/Java-blue) ![](https://img.shields.io/badge/Matlab-blue)
 
