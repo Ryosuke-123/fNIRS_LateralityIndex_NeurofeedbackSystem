@@ -1,7 +1,7 @@
 <resources>
 
     <!--**************************** activity_main.xml *****************************-->
-    <string name="app_name">Shamfeedback</string>
+    <string name="app_name">Neurofeedback</string>
     <string name="concept">for a strong spirit...</string>
 
     <!--**************************** exp_setting.xml *****************************-->

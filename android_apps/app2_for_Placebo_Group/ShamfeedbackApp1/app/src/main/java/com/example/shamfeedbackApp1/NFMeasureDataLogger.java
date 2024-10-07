@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 public class NFMeasureDataLogger extends NFLogger
 {
     final static String CommentOut            = "#";
-    final static String Copyright             = "HOT2000 NF System" + "(C) Ryosuke Hiyama. 2023. All rights reserved";
+    final static String Copyright             = "HOT2000 NF System" + "(C) Ryosuke Hiyama. 2024. All rights reserved";
     final static String Version               = "Ver 1.00";
     final static String Header_BtAddress      = "BluetoothAddress";
     final static String Header_RestTime       = "RestTime";

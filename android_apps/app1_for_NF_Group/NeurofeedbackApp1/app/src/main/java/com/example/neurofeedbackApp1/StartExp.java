@@ -371,19 +371,19 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
 
             // tab1
             spec = tabHost.newTabSpec("Tab1")
-                    .setIndicator("デバイス", ContextCompat.getDrawable(this,R.drawable.background))
+                    .setIndicator("デバイス")
                     .setContent(R.id.prepare_layout);
             tabHost.addTab(spec);
 
             // tab2
             spec = tabHost.newTabSpec("Tab2")
-                    .setIndicator("計測",ContextCompat.getDrawable(this,R.drawable.background))
+                    .setIndicator("計測")
                     .setContent(R.id.measure_layout);
             tabHost.addTab(spec);
 
             // tab3
             spec = tabHost.newTabSpec("Tab3")
-                    .setIndicator("実験条件",ContextCompat.getDrawable(this,R.drawable.background))
+                    .setIndicator("実験条件")
                     .setContent(R.id.conditions_layout);
             tabHost.addTab(spec);
 
@@ -521,7 +521,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
 
             try
             {
-                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, true);
+                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, false);
 
                 if (result == EnumExBrainResult.eSuccess)
                 {
