@@ -13,8 +13,8 @@ Our system is characterized by a 2-channel wearable device, a robust asymmetry c
 
 ## For who want to use this NF App
 In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The APK files for each app can be downloaded from the links below. <br>
-- NF App: [this releases page](). <br>
-- Placebo App: [this releases page](). <br>
+- NF App: [this releases page](https://github.com/Ryosuke-123/fNIRS_LateralityIndex_NeurofeedbackSystem/releases/tag/v1.0.0). <br>
+- Placebo App: [this releases page](https://github.com/Ryosuke-123/fNIRS_LateralityIndex_NeurofeedbackSystem/releases/tag/v1.0.0). <br>
 
 ### How to Use
 #### 1. Install the App
