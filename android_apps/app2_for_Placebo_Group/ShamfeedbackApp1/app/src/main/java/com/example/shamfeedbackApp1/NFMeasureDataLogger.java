@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 public class NFMeasureDataLogger extends NFLogger
 {
     final static String CommentOut            = "#";
-    final static String Copyright             = "HOT2000 NF System" + "(C) Ryosuke Hiyama. 2024. All rights reserved";
+    final static String Copyright             = "HOT2000 NF System" + "(C) Sato Lab. 2023. All rights reserved";
     final static String Version               = "Ver 1.00";
     final static String Header_BtAddress      = "BluetoothAddress";
     final static String Header_RestTime       = "RestTime";
@@ -48,12 +48,12 @@ public class NFMeasureDataLogger extends NFLogger
     final static String NFMeasurementItem =
             "Device time,"+
             "Headset time(sec),"+
-            "HbT change(left,MD-ICA),"+
-            "HbT change(right,MD-ICA),"+
-            "Average HbT change(left),"+
-            "Average HbT change(right),"+
-            "LI(left-right/left+right),"+
-            "LI(right-left/right+left),"+
+            "HbT change(left),"+
+            "HbT change(right),"+
+            "Avg HbT change(left),"+
+            "Avg HbT change(right),"+
+            "LI(L-R/L+R),"+
+            "LI(R-L/R+L),"+
             "HbT change(left SD3cm),"+
             "HbT change(left SD1cm),"+
             "HbT change(right SD3cm),"+

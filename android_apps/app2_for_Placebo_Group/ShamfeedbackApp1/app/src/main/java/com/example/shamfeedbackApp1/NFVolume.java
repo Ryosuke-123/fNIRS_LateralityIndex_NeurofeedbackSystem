@@ -13,7 +13,7 @@ public class NFVolume
     // Rest区間とRegulation区間の境目を合図するビープ音を鳴らす
     void trialBeepSound(AudioManager audioManager, MediaPlayer mediaPlayer)
     {
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,10,0);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,8,0);
         mediaPlayer.start();
     }
 

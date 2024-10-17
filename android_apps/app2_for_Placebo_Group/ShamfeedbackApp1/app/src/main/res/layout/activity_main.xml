@@ -20,9 +20,9 @@
         android:fontFamily="@font/give_you_glory"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textSize="55sp"
+        android:textSize="50sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="#fff"/>
 
     <Space
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="#fff"/>
 
     <Space
         android:layout_width="match_parent"

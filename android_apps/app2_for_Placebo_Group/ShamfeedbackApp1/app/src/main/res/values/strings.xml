@@ -58,6 +58,8 @@
     <string name="prepareDevice">デバイス準備</string>
     <string name="settingStart">セッティング開始</string>
 
+    <string name="currentState">Current</string>
+    <string name="currentStateValue">待機中</string>
     <string name="leftBrain">Left</string>
     <string name="leftBrainValue">0</string>
     <string name="leftBrainValueUnit">mMmm</string>

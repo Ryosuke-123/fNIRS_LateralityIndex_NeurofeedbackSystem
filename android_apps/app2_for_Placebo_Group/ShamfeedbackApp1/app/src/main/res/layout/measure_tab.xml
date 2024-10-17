@@ -25,6 +25,29 @@
         android:layout_width="match_parent"
         android:layout_height="300sp"/>
 
+    <!-- ################### 実験シーケンス表示 ################### -->
+    <LinearLayout
+        android:layout_width="220sp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:text="@string/currentState"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/currentState"
+            android:layout_width="170sp"
+            android:layout_height="wrap_content"
+            android:text="@string/currentStateValue"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
 
     <!-- ################### 左脳血流変化表示 ################### -->
     <LinearLayout
@@ -120,29 +143,6 @@
             android:layout_width="50sp"
             android:layout_height="wrap_content"
             android:text="@string/liBrainValue"
-            android:textAlignment="center"
-            android:textStyle="bold"/>
-
-    </LinearLayout>
-
-    <!-- ###################### Trial数表示 ##################### -->
-    <LinearLayout
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:text="@string/trial"
-            android:textAlignment="center"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/trialValue"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:text="@string/trialValue"
             android:textAlignment="center"
             android:textStyle="bold"/>
 

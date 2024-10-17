@@ -4,6 +4,6 @@ package com.example.shamfeedbackApp1;
 public class NFSystemDefine
 {
     /*--------NFシステム 計測結果ファイル名接頭辞, 拡張子-------*/
-    public static final String MEASURE_RESULT_FILENAME_PREFIX = "ShamLog";
+    public static final String MEASURE_RESULT_FILENAME_PREFIX = "NFLog";
     public static final String MEASURE_RESULT_FILENAME_SUFFIX = ".csv";
 }

@@ -122,7 +122,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     double gyroX = 0.0; // X軸角速度
     double gyroY = 0.0; // Y軸角速度
     double gyroZ = 0.0; // Z軸角速度
-    short mark = 0;   // マーク
+    short  mark = 0;   // マーク
 
     double[] preScan2LeftBrainDataset;
     double[] preScan2RightBrainDataset;
@@ -141,6 +141,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
     int mExpModeFlag = 0;
     int mExpMode = 0;   // 実験モード(0: Rest Mode, 1: NF Mode)
+
+    String mFilename;
 
     // 聴覚NF用クラス
     NFVolume mNFVolume;
@@ -169,6 +171,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     DetectNoise mDetectNoise;
     int mMotionArtifactState = 0;
 
+    TextView mCurrentState;
     TextView mLeftBrainValue;
     TextView mRightBrainValue;
     TextView mLeftMotionArtifact;
@@ -198,13 +201,12 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.measureStop).setOnClickListener(this);
 
         // テキストの設定
-        mLeftBrainValue = findViewById(R.id.leftBrainValue);
-        mRightBrainValue = findViewById(R.id.rightBrainValue);
-        mLeftMotionArtifact = findViewById(R.id.leftMotionArtifact);
+        mCurrentState        = findViewById(R.id.currentState);
+        mLeftBrainValue      = findViewById(R.id.leftBrainValue);
+        mRightBrainValue     = findViewById(R.id.rightBrainValue);
+        mLeftMotionArtifact  = findViewById(R.id.leftMotionArtifact);
         mRightMotionArtifact = findViewById(R.id.rightMotionArtifact);
-        mLIBrainValue = findViewById(R.id.liBrainValue);
-        mTrialValue = findViewById(R.id.trialValue);
-
+        mLIBrainValue        = findViewById(R.id.liBrainValue);
 
         // tabHostの初期化および設定処理
         initTabs();
@@ -251,7 +253,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                 }
 
                 @Override
-                public void onNotifyMeasureRawData(String s, DeviceMeasureData deviceMeasureData) {
+                public void onNotifyMeasureRawData(String s, DeviceMeasureData deviceMeasureData)
+                {
                     // HOT2000バッテリー残量確認
                     batteryHot2000 = deviceMeasureData.batteryGauge;
                     checkHOT2000Battery(batteryHot2000);
@@ -261,6 +264,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                     mNoiseData = readNoiseCSV(mLineNumber + 1);
 
                     Log.d("noiseData", String.valueOf(mNoiseData));
+                    Log.d("LineNumber", String.valueOf(mLineNumber));
 
                     Log.d("Battery", String.valueOf(deviceMeasureData.batteryGauge));
 
@@ -273,7 +277,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
 
                     // グラフ描画
-                    mLineGraph.display((float) scalingLiBrain1);
+                    // mLineGraph.display((float) liBrain1);
+                    mLineGraph.display((float)0.0);
 
                     if (mExpMode == 1) // LIと白色雑音の音量を対応付けるフィードバックの開始
                     {
@@ -283,31 +288,38 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                         setWhiteNoiseVolume((float) mWhiteNoiseVolume);
 
                         // テキスト表示
-                        mLeftBrainValue.setText(String.format("%.2f", leftAverageBrain));
-                        mRightBrainValue.setText(String.format("%.2f", rightAverageBrain));
-                        mLIBrainValue.setText(String.format("%.2f", liBrain1));
+                        // mLeftBrainValue.setText(String.format("%.2f", leftAverageBrain));
+                        // mRightBrainValue.setText(String.format("%.2f", rightAverageBrain));
+                        // mLIBrainValue.setText(String.format("%.2f", liBrain1));
                     }
 
                     if (mExpMode == 1) {
-                        mLeftBrainValue.setText(String.format("%.2f", preScan1LeftBrain));
-                        mRightBrainValue.setText(String.format("%.2f", preScan1RightBrain));
-                        mLIBrainValue.setText(String.format("%.2f", scalingLiBrain1));
+                        // mLeftBrainValue.setText(String.format("%.2f", preScan1LeftBrain));
+                        // mRightBrainValue.setText(String.format("%.2f", preScan1RightBrain));
+                        // mLIBrainValue.setText(String.format("%.2f", scalingLiBrain1));
                     }
 
                     // テキスト表示
-                    if (mMotionArtifactState == 1) {
+                    /*if (mMotionArtifactState == 1)
+                    {
                         mLeftMotionArtifact.setText("異常");
                         mRightMotionArtifact.setText("正常");
-                    } else if (mMotionArtifactState == 2) {
+                    }
+                    else if (mMotionArtifactState == 2)
+                    {
                         mLeftMotionArtifact.setText("正常");
                         mRightMotionArtifact.setText("異常");
-                    } else if (mMotionArtifactState == 3) {
+                    }
+                    else if (mMotionArtifactState == 3)
+                    {
                         mLeftMotionArtifact.setText("異常");
                         mRightMotionArtifact.setText("異常");
-                    } else {
-                        mLeftMotionArtifact.setText("正常");
-                        mRightMotionArtifact.setText("正常 ");
                     }
+                    else
+                    {
+                        mLeftMotionArtifact.setText("正常");
+                        mRightMotionArtifact.setText("正常");
+                    }*/
                 }
 
                 @Override
@@ -373,6 +385,48 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
         // ノイズ検出クラス準備
         mDetectNoise = new DetectNoise();
+
+        // 白色ノイズをランダムに選択
+        Random rand = new Random();
+        int num = rand.nextInt(10) + 1; // 1~3の乱数を生成
+
+        switch (num)
+        {
+            case 1:
+                mFilename = "NoiseData1.csv";
+                break;
+            case 2:
+                mFilename = "NoiseData2.csv";
+                break;
+            case 3:
+                mFilename = "NoiseData3.csv";
+                break;
+            case 4:
+                mFilename = "NoiseData4.csv";
+                break;
+            case 5:
+                mFilename = "NoiseData5.csv";
+                break;
+            case 6:
+                mFilename = "NoiseData6.csv";
+                break;
+            case 7:
+                mFilename = "NoiseData7.csv";
+                break;
+            case 8:
+                mFilename = "NoiseData8.csv";
+                break;
+            case 9:
+                mFilename = "NoiseData9.csv";
+                break;
+            case 10:
+                mFilename = "NoiseData10.csv";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + num);
+        }
+
+        Log.d("File Name: ",mFilename);
     }
 
     void initTabs() {
@@ -383,19 +437,19 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
             // tab1
             spec = tabHost.newTabSpec("Tab1")
-                    .setIndicator("デバイス")
+                    .setIndicator("デバイス", ContextCompat.getDrawable(this, R.drawable.background))
                     .setContent(R.id.prepare_layout);
             tabHost.addTab(spec);
 
             // tab2
             spec = tabHost.newTabSpec("Tab2")
-                    .setIndicator("計測")
+                    .setIndicator("計測", ContextCompat.getDrawable(this, R.drawable.background))
                     .setContent(R.id.measure_layout);
             tabHost.addTab(spec);
 
             // tab3
             spec = tabHost.newTabSpec("Tab3")
-                    .setIndicator("実験条件")
+                    .setIndicator("実験条件", ContextCompat.getDrawable(this, R.drawable.background))
                     .setContent(R.id.conditions_layout);
             tabHost.addTab(spec);
 
@@ -500,7 +554,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             mBtAddress = connectHandleID;
 
             try {
-                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, false);
+                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, true);
 
                 if (result == EnumExBrainResult.eSuccess) {
                     // NFシステム 計測データ ストア準備開始
@@ -559,12 +613,17 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         gyroZ = measureData.motionGyroValues[2];
 
         // Expモード(1: PreScan1, 2: PreScan2, 3: Training)の変更
-        if (mExpModeFlag == 0) {
+        if (mExpModeFlag == 0)
+        {
             mExpMode = 0;
             mark = 0;
-        } else if (mExpModeFlag == 1) {
+            mCurrentState.setText("Rest期間");
+        }
+        else if (mExpModeFlag == 1)
+        {
             mExpMode = 1;
             mark = 1;
+            mCurrentState.setText("NF期間");
         }
 
         if (mExpMode == 0)      // Rest Mode
@@ -663,10 +722,18 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             leftBrainDataset[mMovingAvgDataNumber - 1] = trainingLeftBrain;
             rightBrainDataset[mMovingAvgDataNumber - 1] = trainingRightBrain;
 
-            if (mTrainingNumberCount == mTrainingDataNumber - 1) {
+            if (mTrainingNumberCount == mTrainingDataNumber - 1)
+            {
+                mCurrentState.setText("終了");
+
                 // 音源ストップ
                 mNFVolume.stopVolume(mMediaPlayer1);
                 mNFVolume.trialBeepSound(mAudioManager, mMediaPlayer2);
+
+                // 白色雑音ストップ
+                mAudioTrack.stop();
+                mAudioTrack.release();
+                mAudioTrack = null;
 
                 // 計測ストップ
                 stopDeviceMeasure();
@@ -711,7 +778,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     {
         double noiseData = 0.0;
         try {
-            InputStream inputStream = getResources().getAssets().open("noiseData.csv");
+            InputStream inputStream = getResources().getAssets().open(mFilename);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 

@@ -16,7 +16,7 @@ public class LineGraph
 {
     //　メンバ変数
     LineChart mLineChart;
-    String labels1 = "LI (R-L/|R|+|L|)";
+    String labels1 = "LI (L-R/L+R)";
     String[] labels2 = new String[]{
             "Left Brain[mMmm]",
             "Right Brain[mMmm]"
