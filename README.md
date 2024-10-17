@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/AndroidStudio-green)
 ![](https://img.shields.io/badge/Java-blue)
 ![](https://img.shields.io/badge/Matlab-blue)
-![doi]()
+![](https://zenodo.org/badge/664611010.svg)
 
 ## Introduction
 Functionl Near-Infrared Spectroscopy (fNIRS) is noninvasive neuroimaging technique that measure hemodynamic signals related to functional activation in the brain. It is used in reseach in various fields such as neuroscience, psychology, and developmental scinece. <br>
