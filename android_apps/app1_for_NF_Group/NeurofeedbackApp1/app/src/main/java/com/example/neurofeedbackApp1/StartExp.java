@@ -12,6 +12,7 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
@@ -36,6 +37,7 @@ import com.neu.exbrainsdk.datas.ExBrainMeasureData;
 import com.neu.exbrainsdk.datas.ExBrainSearchParameter;
 import com.neu.exbrainsdk.interfaces.bluetooth.DriverBluetoothDevice;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -521,7 +523,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
 
             try
             {
-                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, false);
+                EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, true);
 
                 if (result == EnumExBrainResult.eSuccess)
                 {
@@ -749,8 +751,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
         brainDoubleData.add(rightBrain);        // 脳活動値(右, MD-ICA)
         brainDoubleData.add(leftAverageBrain);  // 過去t秒間の平均脳活動値(左)
         brainDoubleData.add(rightAverageBrain); // 過去t秒間の平均脳活動値(右)
-        brainDoubleData.add(liBrain1);          // LI値(左)
-        brainDoubleData.add(liBrain2);          // LI値(右)
+        brainDoubleData.add(liBrain1);          // 算出されたLI値
+        brainDoubleData.add(liBrain1);          // 実際にフィードバックされたLI値
         brainDoubleData.add(left3cmBrain);
         brainDoubleData.add(left1cmBrain);
         brainDoubleData.add(right3cmBrain);
@@ -928,5 +930,30 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
             stopDeviceMeasure();
             mLoggingTrigger = false;
         }
+    }
+
+    // フォルダ削除コード
+    private void deleteAPILogFolder()
+    {
+        // 内部共有ストレージのパスを取得
+        File apiLogFolder = new File(Environment.getExternalStorageDirectory(),"ExBrainSdk1");
+
+        if (apiLogFolder.exists())
+        {
+            deleteRecursive((apiLogFolder));
+        }
+    }
+
+    // 再帰的にフォルダ内の全てのファイルとフォルダを削除するメソッド
+    private void deleteRecursive(File fileOrDirectory)
+    {
+        if (fileOrDirectory.isDirectory())
+        {
+            for (File child : fileOrDirectory.listFiles())
+            {
+                deleteRecursive(child);
+            }
+        }
+        fileOrDirectory.delete();
     }
 }

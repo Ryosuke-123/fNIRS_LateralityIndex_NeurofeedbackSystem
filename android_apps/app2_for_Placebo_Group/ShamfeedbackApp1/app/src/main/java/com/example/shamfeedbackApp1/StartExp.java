@@ -12,6 +12,7 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,7 @@ import com.neu.exbrainsdk.datas.ExBrainSearchParameter;
 import com.neu.exbrainsdk.interfaces.bluetooth.DriverBluetoothDevice;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -259,14 +261,14 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                     batteryHot2000 = deviceMeasureData.batteryGauge;
                     checkHOT2000Battery(batteryHot2000);
 
-                    // ノイズデータ(csvファイルの読み取り)
+                    // プラセボノイズデータ(csvファイルの読み取り)
                     mLineNumber = mResultCounter;
                     mNoiseData = readNoiseCSV(mLineNumber + 1);
 
-                    Log.d("noiseData", String.valueOf(mNoiseData));
-                    Log.d("LineNumber", String.valueOf(mLineNumber));
+                    // Log.d("noiseData", String.valueOf(mNoiseData));
+                    // Log.d("LineNumber", String.valueOf(mLineNumber));
 
-                    Log.d("Battery", String.valueOf(deviceMeasureData.batteryGauge));
+                    // Log.d("Battery", String.valueOf(deviceMeasureData.batteryGauge));
 
                     // 計測データ ロギング
                     if (mLoggingTrigger)
@@ -282,7 +284,10 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
                     if (mExpMode == 1) // LIと白色雑音の音量を対応付けるフィードバックの開始
                     {
-                        mWhiteNoiseVolume = mNoiseData;
+
+                        mWhiteNoiseVolume = (float) liTransToVolume(mNoiseData);
+
+                        // mWhiteNoiseVolume = mNoiseData;
 
                         // mWhiteNoiseVolume = (float) liTransToVolume(liBrain1);
                         setWhiteNoiseVolume((float) mWhiteNoiseVolume);
@@ -388,7 +393,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
         // 白色ノイズをランダムに選択
         Random rand = new Random();
-        int num = rand.nextInt(10) + 1; // 1~3の乱数を生成
+        int num = rand.nextInt(20) + 1; // 1~20の乱数を生成
 
         switch (num)
         {
@@ -422,6 +427,37 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             case 10:
                 mFilename = "NoiseData10.csv";
                 break;
+            case 11:
+                mFilename = "NoiseData11.csv";
+                break;
+            case 12:
+                mFilename = "NoiseData12.csv";
+                break;
+            case 13:
+                mFilename = "NoiseData13.csv";
+                break;
+            case 14:
+                mFilename = "NoiseData14.csv";
+                break;
+            case 15:
+                mFilename = "NoiseData15.csv";
+                break;
+            case 16:
+                mFilename = "NoiseData16.csv";
+                break;
+            case 17:
+                mFilename = "NoiseData17.csv";
+                break;
+            case 18:
+                mFilename = "NoiseData18.csv";
+                break;
+            case 19:
+                mFilename = "NoiseData19.csv";
+                break;
+            case 20:
+                mFilename = "NoiseData20.csv";
+                break;
+
             default:
                 throw new IllegalStateException("Unexpected value: " + num);
         }
@@ -437,19 +473,19 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
             // tab1
             spec = tabHost.newTabSpec("Tab1")
-                    .setIndicator("デバイス", ContextCompat.getDrawable(this, R.drawable.background))
+                    .setIndicator("デバイス")
                     .setContent(R.id.prepare_layout);
             tabHost.addTab(spec);
 
             // tab2
             spec = tabHost.newTabSpec("Tab2")
-                    .setIndicator("計測", ContextCompat.getDrawable(this, R.drawable.background))
+                    .setIndicator("計測")
                     .setContent(R.id.measure_layout);
             tabHost.addTab(spec);
 
             // tab3
             spec = tabHost.newTabSpec("Tab3")
-                    .setIndicator("実験条件", ContextCompat.getDrawable(this, R.drawable.background))
+                    .setIndicator("実験条件")
                     .setContent(R.id.conditions_layout);
             tabHost.addTab(spec);
 
@@ -612,6 +648,9 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         gyroY = measureData.motionGyroValues[1];
         gyroZ = measureData.motionGyroValues[2];
 
+        Log.d("leftBrain", String.valueOf(leftBrain));
+        Log.d("RightData", String.valueOf(rightBrain));
+
         // Expモード(1: PreScan1, 2: PreScan2, 3: Training)の変更
         if (mExpModeFlag == 0)
         {
@@ -737,6 +776,10 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
                 // 計測ストップ
                 stopDeviceMeasure();
+
+                //** ------ APIログフォルダの削除 ---- //
+                deleteAPILogFolder();
+
             } else {
                 mTrainingNumberCount = mTrainingNumberCount + 1;
             }
@@ -747,8 +790,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         brainDoubleData.add(rightBrain);        // 脳活動値(右, MD-ICA)
         brainDoubleData.add(leftAverageBrain);  // 過去t秒間の平均脳活動値(左)
         brainDoubleData.add(rightAverageBrain); // 過去t秒間の平均脳活動値(右)
-        brainDoubleData.add(liBrain1);          // LI値(左)
-        brainDoubleData.add(liBrain2);          // LI値(右)
+        brainDoubleData.add(liBrain1);          // 算出されたLI値
+        brainDoubleData.add(mNoiseData);        // 実際にFBされたLI値
         brainDoubleData.add(left3cmBrain);
         brainDoubleData.add(left1cmBrain);
         brainDoubleData.add(right3cmBrain);
@@ -854,6 +897,54 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+    // LIの値から白色雑音の音量を決定
+    double liTransToVolume(double liValue)
+    {
+        double volume = 0.0;
+
+        if (0.2 <= liValue)
+        {
+            volume = 0.0;
+        }
+        else if (0.15 <= liValue && liValue < 0.2)
+        {
+            volume = 0.02;
+        }
+        else if (0.10 <= liValue && liValue < 0.15)
+        {
+            volume = 0.04;
+        }
+        else if (0.05 <= liValue && liValue < 0.10)
+        {
+            volume = 0.06;
+        }
+        else if (0.00 <= liValue && liValue < 0.05)
+        {
+            volume = 0.08;
+        }
+        else if (-0.05 <= liValue && liValue < 0.00)
+        {
+            volume = 0.10;
+        }
+        else if (-0.10 <= liValue && liValue < -0.05)
+        {
+            volume = 0.12;
+        }
+        else if (-0.15 <= liValue && liValue < -0.10)
+        {
+            volume = 0.14;
+        }
+        else if (-0.20 <= liValue && liValue < -0.15)
+        {
+            volume = 0.16;
+        }
+        else if (liValue < -0.20)
+        {
+            volume = 0.18;
+        }
+
+        return volume;
+    }
 
     void checkHOT2000Battery(double battery)
     {
@@ -901,5 +992,30 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             stopDeviceMeasure();
             mLoggingTrigger = false;
         }
+    }
+
+    // フォルダ削除コード
+    private void deleteAPILogFolder()
+    {
+        // 内部共有ストレージのパスを取得
+        File apiLogFolder = new File(Environment.getExternalStorageDirectory(),"ExBrainSdk1");
+
+        if (apiLogFolder.exists())
+        {
+            deleteRecursive((apiLogFolder));
+        }
+    }
+
+    // 再帰的にフォルダ内の全てのファイルとフォルダを削除するメソッド
+    private void deleteRecursive(File fileOrDirectory)
+    {
+        if (fileOrDirectory.isDirectory())
+        {
+            for (File child : fileOrDirectory.listFiles())
+            {
+                deleteRecursive(child);
+            }
+        }
+        fileOrDirectory.delete();
     }
 }

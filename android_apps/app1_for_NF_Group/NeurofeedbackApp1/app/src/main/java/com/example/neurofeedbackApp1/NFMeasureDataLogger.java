@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 public class NFMeasureDataLogger extends NFLogger
 {
     final static String CommentOut            = "#";
-    final static String Copyright             = "HOT2000 NF System" + "(C) Sato Lab. 2024. All rights reserved";
+    final static String Copyright             = "HOT2000 NF System" + "(C) Ryosuke Hiyama & Hiroki Sato. 2024. All rights reserved";
     final static String Version               = "Ver 1.00";
     final static String Header_BtAddress      = "BluetoothAddress";
     final static String Header_RestTime       = "RestTime";
@@ -30,8 +30,8 @@ public class NFMeasureDataLogger extends NFLogger
     // 脳活動値(右)                 HbT change(right,MD-ICA)
     // 平均脳血流変化(左)             Average HbT change(left)
     // 平均脳血流変化(右)             Average HbT change(right)
-    // 側性化指標1((左-右)/(左+右)):  LI(left-right/left+right)
-    // 側性化指標2((右-左)/(右+左)):  LI(right-left/left+right)
+    // 算出された側性化指標:           Calculate LI
+    // 実際にFBされた側性化指標:       Feedback LI
     // 脳血流変化(左SD3cm):          HbT change(left SD3cm)
     // 脳血流変化(左SD1cm):          HbT change(left SD1cm)
     // 脳血流変化(右SD3cm):          HbT change(right SD3cm)
@@ -52,8 +52,8 @@ public class NFMeasureDataLogger extends NFLogger
             "HbT change(right),"+
             "Avg HbT change(left),"+
             "Avg HbT change(right),"+
-            "LI(L-R/L+R),"+
-            "LI(R-L/R+L),"+
+            "Calculate LI,"+
+            "Feedback LI,"+
             "HbT change(left SD3cm),"+
             "HbT change(left SD1cm),"+
             "HbT change(right SD3cm),"+
