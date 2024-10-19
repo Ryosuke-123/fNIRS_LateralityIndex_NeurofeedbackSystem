@@ -57,92 +57,73 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
     boolean mLoggingTrigger = false;
 
-    String mBtAddress = "";
-    String mRestTime = ""; // プレスキャンの時間
-    String mBaselineTime = ""; // Baseline定義時間
-    String mMovingAvgTime = ""; // 移動平均の時間幅
-    String mTrainingTime = ""; // トレーニングタイム
-    double mSamplingTime = 0.1; // サンプリング時間[s]
+    String mBtAddress     = "";
+    String mRestTime      = "";  // Time of Rest Period
+    String mBaselineTime  = "";  // Time of Baseline Period
+    String mMovingAvgTime = "";  // Time of Moving Average
+    String mTrainingTime  = "";  // Time of Feedback Period
+    double mSamplingTime  = 0.1; // Sampling Time
 
-    int mRestDataNumber = 0;
-    int mBaselineDataNumber = 0;
+    int mRestDataNumber      = 0;
+    int mBaselineDataNumber  = 0;
     int mMovingAvgDataNumber = 0;
-    int mTrainingDataNumber = 0;
+    int mTrainingDataNumber  = 0;
 
-    int mRestNumberCount = 0;
-    int mBaselineNumberCount = 0;
+    int mRestNumberCount      = 0;
+    int mBaselineNumberCount  = 0;
     int mMovingAvgNumberCount = 0;
-    int mTrainingNumberCount = 0;
+    int mTrainingNumberCount  = 0;
 
 
     double[] mLeftBaseline;
     double[] mRightBaseline;
-    double mLeftSumBrain = 0.0; // Baseline期間における脳活動値の合計(左)
+    double mLeftSumBrain  = 0.0; // Baseline期間における脳活動値の合計(左)
     double mRightSumBrain = 0.0; // Baseline期間における脳活動値の合計(右)
-    double preScanLeftBaseline = 0.0;
+    double preScanLeftBaseline  = 0.0;
     double preScanRightBaseline = 0.0;
 
     NFMeasureDataManager mNFMeasureDataManager;
     int mResultCounter = 0;   // サンプリングカウンタ
 
-    double leftBrain = 0.0; // 脳活動値(左, MD-ICA)
-    double rightBrain = 0.0; // 脳活動値(右, MD-ICA)
+    double leftBrain  = 0.0; // 脳活動値(左)
+    double rightBrain = 0.0; // 脳活動値(右)
 
-    double leftBaseline = 0.0; // 左ベースライン脳血流
-    double rightBaseline = 0.0; // 右ベースライン脳血流
-    double baseline = 0.0; // ベースライン基準値
-    double left3cmBaseline = 0.0; // 左3cmベースライン脳血流
-    double left1cmBaseline = 0.0; // 左1cmベースライン脳血流
+    double left3cmBaseline  = 0.0; // 左3cmベースライン脳血流
+    double left1cmBaseline  = 0.0; // 左1cmベースライン脳血流
     double right3cmBaseline = 0.0; // 右3cmベースライン脳血流
     double right1cmBaseline = 0.0; // 右1cmベースライン脳血流
-    double averageBrainGain = 0.0; // Training期間の最初のLI値を求める為の左右の脳血流変化について、その差が0となるようなゲイン値
 
-    double rawLeftBrain = 0.0; // 脳血流変化の生データ(左)
-    double rawRightBrain = 0.0; // 脳血流変化の生データ(右)
-    double preScan1LeftBrain = 0.0; // PreScan1期間の脳血流変化(左)
-    double preScan1RightBrain = 0.0; // PreScan1期間の脳血流変化(右)
-    double preScan2LeftBrain = 0.0; // PreScan2期間の脳血流変化(左)
-    double preScan2RightBrain = 0.0; // PreScan2期間の脳血流変化(右)
-    double trainingLeftBrain = 0.0; // Training期間の脳血流変化(左)
+    double trainingLeftBrain  = 0.0; // Training期間の脳血流変化(左)
     double trainingRightBrain = 0.0; // Training期間の脳血流変化(右)
-    double leftAverageBrain = 0.0; // 過去t秒間の平均脳血流変化(左)
-    double rightAverageBrain = 0.0; // 過去t秒間の平均脳血流変化(右)
-    double leftGainingAverageBrain = 0.0; // ゲイン調整後の平均脳血流変化(左)
-    double rightGainingAverageBrain = 0.0; // ゲイン調整後の平均脳血流変化(右)
+    double leftAverageBrain   = 0.0; // 過去t秒間の平均脳血流変化(左)
+    double rightAverageBrain  = 0.0; // 過去t秒間の平均脳血流変化(右)
     double liBrain1 = 0.0; // 側性化指標(左脳血流変化 - 右脳血流変化 / 左脳血流変化 + 右脳血流変化)
     double liBrain2 = 0.0; // 側性化指標(右脳血流変化 - 左脳血流変化 / 右脳血流変化 + 左脳血流変化)
-    double scalingLiBrain1 = 0.0; // スケーリングした側性化指標(左脳血流変化 - 右脳血流変化 / 左脳血流変化 + 右脳血流変化)
-    double scalingLiBrain2 = 0.0; // スケーリングした側性化指標(右脳血流変化 - 左脳血流変化 / 右脳血流変化 + 左脳血流変化)
-    double left3cmBrain = 0.0; // 左3cm脳血流変化
-    double left1cmBrain = 0.0; // 左1cn脳血流変化
+    double left3cmBrain  = 0.0; // 左3cm脳血流変化
+    double left1cmBrain  = 0.0; // 左1cn脳血流変化
     double right3cmBrain = 0.0; // 右3cm脳血流変化
     double right1cmBrain = 0.0; // 右1cm脳血流変化
-    double pulseRate = 0.0; // 脈拍
-    double accX = 0.0; // X軸加速度
-    double accY = 0.0; // Y軸加速度
-    double accZ = 0.0; // Z軸加速度
+    double pulseRate     = 0.0; // 脈拍
+    double accX  = 0.0; // X軸加速度
+    double accY  = 0.0; // Y軸加速度
+    double accZ  = 0.0; // Z軸加速度
     double gyroX = 0.0; // X軸角速度
     double gyroY = 0.0; // Y軸角速度
     double gyroZ = 0.0; // Z軸角速度
-    short  mark = 0;   // マーク
+    short  mark  = 0;   // マーク
 
-    double[] preScan2LeftBrainDataset;
-    double[] preScan2RightBrainDataset;
     double[] leftBrainDataset;
     double[] rightBrainDataset;
-    double maxBrain;
-    double liRange = 0.0; // LI値の範囲(推定値)
-    double liScaling = 0.0; // LI値のスケーリング
-    double leftBrainDatasetSum = 0.0; // leftBrainDatasetの足し算
+    double leftBrainDatasetSum  = 0.0;  // leftBrainDatasetの足し算
     double rightBrainDatasetSum = 0.0; // rightBrainDatasetの足し算
 
     double batteryHot2000 = 0.0; // HOT2000電池残量[%]
 
-    int mLineNumber  = 0; // 読み取りたいcsvファイルの行
+    int mLineNumber   = 0;   // 読み取りたいcsvファイルの行
     double mNoiseData = 0.0; // csvファイルから読み取ったノイズデータ
 
     int mExpModeFlag = 0;
-    int mExpMode = 0;   // 実験モード(0: Rest Mode, 1: NF Mode)
+    int mExpMode     = 0; // 実験モード(0: Rest Mode, 1: NF Mode)
 
     String mFilename;
 
@@ -153,11 +134,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     MediaPlayer mMediaPlayer1;
     MediaPlayer mMediaPlayer2;
     boolean mMediaPlayerState = true;
-
-    // csvファイル読み取り用
-    InputStream       mInputStream;
-    InputStreamReader mInputStreamReader;
-    BufferedReader    mBufferedReader;
 
     // 白色雑音用AudioTrack
     AudioTrack mAudioTrack;
@@ -171,7 +147,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
     // ノイズ検出クラス
     DetectNoise mDetectNoise;
-    int mMotionArtifactState = 0;
 
     TextView mCurrentState;
     TextView mLeftBrainValue;
@@ -179,8 +154,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     TextView mLeftMotionArtifact;
     TextView mRightMotionArtifact;
     TextView mLIBrainValue;
-    TextView mTrialValue;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -193,7 +166,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
         // タイトルバーの削除
         ActionBar mActionBar = getSupportActionBar();
-        if (mActionBar != null) {
+        if (mActionBar != null)
+        {
             mActionBar.hide();
         }
 
@@ -214,19 +188,22 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         initTabs();
 
         // Bluetoothサービス有無確認
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE))
+        {
             finish();
         }
 
         // 外部ストレージ設定(ログファイル保存用)
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        {
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
 
         // [Bluetoothアダプタ生成＆確認]
         final BluetoothManager mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
-        if (mBluetoothAdapter == null) {
+        if (mBluetoothAdapter == null)
+        {
             finish();
         }
 
@@ -237,20 +214,25 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         mExBrainApi = ExBrainApi.instance();
 
         // BluetoothとUSBサービスおよび通信ログ出力ありとしてドライバAPIを初期化 デバイス1用
-        try {
-            EnumExBrainResult result = mExBrainApi.initApi(mBluetoothManager, mUsbManager, false, false, "ExBrainSdk1", new IExBrainSdkCallbacks() {
+        try
+        {
+            EnumExBrainResult result = mExBrainApi.initApi(mBluetoothManager, mUsbManager, false, false, "ExBrainSdk1", new IExBrainSdkCallbacks()
+            {
                 @Override
-                public void onNotifyStatusChanged(String s, EnumExBrainStatus enumExBrainStatus) {
+                public void onNotifyStatusChanged(String s, EnumExBrainStatus enumExBrainStatus)
+                {
 
                 }
 
                 @Override
-                public void onNotifyActionEvents(String s, EnumExBrainEvents enumExBrainEvents) {
+                public void onNotifyActionEvents(String s, EnumExBrainEvents enumExBrainEvents)
+                {
 
                 }
 
                 @Override
-                public void onNotifyMeasureData(String s, ExBrainMeasureData exBrainMeasureData) {
+                public void onNotifyMeasureData(String s, ExBrainMeasureData exBrainMeasureData)
+                {
 
                 }
 
@@ -265,113 +247,72 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                     mLineNumber = mResultCounter;
                     mNoiseData = readNoiseCSV(mLineNumber + 1);
 
-                    // Log.d("noiseData", String.valueOf(mNoiseData));
-                    // Log.d("LineNumber", String.valueOf(mLineNumber));
-
-                    // Log.d("Battery", String.valueOf(deviceMeasureData.batteryGauge));
-
                     // 計測データ ロギング
                     if (mLoggingTrigger)
                     {
                         loggingData(deviceMeasureData);
                     }
 
-
-
                     // グラフ描画
-                    // mLineGraph.display((float) liBrain1);
                     mLineGraph.display((float)0.0);
 
                     if (mExpMode == 1) // LIと白色雑音の音量を対応付けるフィードバックの開始
                     {
-
                         mWhiteNoiseVolume = (float) liTransToVolume(mNoiseData);
-
-                        // mWhiteNoiseVolume = mNoiseData;
-
-                        // mWhiteNoiseVolume = (float) liTransToVolume(liBrain1);
                         setWhiteNoiseVolume((float) mWhiteNoiseVolume);
-
-                        // テキスト表示
-                        // mLeftBrainValue.setText(String.format("%.2f", leftAverageBrain));
-                        // mRightBrainValue.setText(String.format("%.2f", rightAverageBrain));
-                        // mLIBrainValue.setText(String.format("%.2f", liBrain1));
                     }
-
-                    if (mExpMode == 1) {
-                        // mLeftBrainValue.setText(String.format("%.2f", preScan1LeftBrain));
-                        // mRightBrainValue.setText(String.format("%.2f", preScan1RightBrain));
-                        // mLIBrainValue.setText(String.format("%.2f", scalingLiBrain1));
-                    }
-
-                    // テキスト表示
-                    /*if (mMotionArtifactState == 1)
-                    {
-                        mLeftMotionArtifact.setText("異常");
-                        mRightMotionArtifact.setText("正常");
-                    }
-                    else if (mMotionArtifactState == 2)
-                    {
-                        mLeftMotionArtifact.setText("正常");
-                        mRightMotionArtifact.setText("異常");
-                    }
-                    else if (mMotionArtifactState == 3)
-                    {
-                        mLeftMotionArtifact.setText("異常");
-                        mRightMotionArtifact.setText("異常");
-                    }
-                    else
-                    {
-                        mLeftMotionArtifact.setText("正常");
-                        mRightMotionArtifact.setText("正常");
-                    }*/
                 }
 
                 @Override
-                public void onNotifySearchResult(EnumExBrainSearchEvent enumExBrainSearchEvent, DeviceInformationEx deviceInformationEx) {
+                public void onNotifySearchResult(EnumExBrainSearchEvent enumExBrainSearchEvent, DeviceInformationEx deviceInformationEx)
+                {
 
                 }
 
                 @Override
-                public void onUsbPermissionRequest(DeviceInformationEx deviceInformationEx) {
+                public void onUsbPermissionRequest(DeviceInformationEx deviceInformationEx)
+                {
 
                 }
             });
 
-            if (result == EnumExBrainResult.eSuccess) {
+            if (result == EnumExBrainResult.eSuccess)
+            {
                 Log.d("Product Name", mExBrainApi.getProductName());
                 Log.d("Product Version", mExBrainApi.getProductVersion());
             }
 
             // インテントフィルターとBroadcastReceiverの登録
             registerReceiver(mExBrainApi.getBluetoothReceiver(), mExBrainApi.getBluetoothReceiverIntentFilter());
-        } catch (ExBrainException ex) {
+        }
+        catch (ExBrainException ex)
+        {
             ex.printStackTrace();
         }
 
         // グラフ描画準備
         mLineGraph = new LineGraph();
-        mChart1 = findViewById(R.id.chart);
+        mChart1    = findViewById(R.id.chart);
         mLineGraph.initSetting(mChart1);
 
         // 実験条件準備
         Intent expSettingIntent = getIntent();
 
-        mRestTime = expSettingIntent.getStringExtra("restTime");
-        mBaselineTime = expSettingIntent.getStringExtra("baselineTime");
+        mRestTime      = expSettingIntent.getStringExtra("restTime");
+        mBaselineTime  = expSettingIntent.getStringExtra("baselineTime");
         mMovingAvgTime = expSettingIntent.getStringExtra("movingAvgTime");
-        mTrainingTime = expSettingIntent.getStringExtra("trainingTime");
+        mTrainingTime  = expSettingIntent.getStringExtra("trainingTime");
 
         /*-------------- 実験条件の反映 ------------*/
-        mRestDataNumber = (int) (Integer.parseInt(mRestTime) / mSamplingTime);
-        mBaselineDataNumber = (int) (Integer.parseInt(mBaselineTime) / mSamplingTime);
+        mRestDataNumber      = (int) (Integer.parseInt(mRestTime) / mSamplingTime);
+        mBaselineDataNumber  = (int) (Integer.parseInt(mBaselineTime) / mSamplingTime);
         mMovingAvgDataNumber = (int) (Integer.parseInt(mMovingAvgTime) / mSamplingTime);
-        mTrainingDataNumber = (int) (Integer.parseInt(mTrainingTime) / mSamplingTime);
+        mTrainingDataNumber  = (int) (Integer.parseInt(mTrainingTime) / mSamplingTime);
 
-        leftBrainDataset = new double[mMovingAvgDataNumber]; // 左平均脳活動値を算出する為のデータセットを準備
+        leftBrainDataset  = new double[mMovingAvgDataNumber];  // 左平均脳活動値を算出する為のデータセットを準備
         rightBrainDataset = new double[mMovingAvgDataNumber]; // 右平均脳活動値を算出する為のデータセットを準備
 
-        mLeftBaseline = new double[mBaselineDataNumber];
+        mLeftBaseline  = new double[mBaselineDataNumber];
         mRightBaseline = new double[mBaselineDataNumber];
 
         mNFVolume = new NFVolume();
@@ -457,7 +398,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             case 20:
                 mFilename = "NoiseData20.csv";
                 break;
-
             default:
                 throw new IllegalStateException("Unexpected value: " + num);
         }
@@ -465,8 +405,10 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         Log.d("File Name: ",mFilename);
     }
 
-    void initTabs() {
-        try {
+    void initTabs()
+    {
+        try
+        {
             TabHost tabHost = findViewById(R.id.tabHost);
             tabHost.setup();
             TabHost.TabSpec spec;
@@ -490,13 +432,17 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             tabHost.addTab(spec);
 
             tabHost.setCurrentTab(0);
-        } catch (RuntimeException e) {
+        }
+        catch (RuntimeException e)
+        {
             e.printStackTrace();
         }
     }
 
-    void startPairedBluetoothDeviceScan() {
-        try {
+    void startPairedBluetoothDeviceScan()
+    {
+        try
+        {
             // [APIによる装置検索用のパラメータを作成]
             ExBrainSearchParameter search_option = new ExBrainSearchParameter();
             search_option.shouldNonPairedBluetooth = false;
@@ -509,14 +455,17 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             ExBrainDiscoveredDevice discoveredDevice = new ExBrainDiscoveredDevice();
             EnumExBrainResult result = mExBrainApi.searchDevice(search_option, discoveredDevice);
 
-            if (result == EnumExBrainResult.eSuccess) {
+            if (result == EnumExBrainResult.eSuccess)
+            {
                 Log.d("Discover Device", "Success");
 
-                for (DeviceInformationEx device : discoveredDevice.devices) {
+                for (DeviceInformationEx device : discoveredDevice.devices)
+                {
                     mDeviceInfo = device;
                 }
 
-                if (mStateProgressBar.getCurrentStateNumber() == 1) {
+                if (mStateProgressBar.getCurrentStateNumber() == 1)
+                {
                     mStateProgressBar.setCurrentStateNumber(StateProgressBar.StateNumber.TWO);
                     connectDevice(mDeviceInfo);
                 }
@@ -528,7 +477,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-    void connectDevice(DeviceInformationEx deviceInfo) {
+    void connectDevice(DeviceInformationEx deviceInfo)
+    {
         String handleID = deviceInfo.deviceId;
         EnumExBrainConnectType connectType = deviceInfo.connectType;
 
@@ -592,10 +542,12 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             try {
                 EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, true);
 
-                if (result == EnumExBrainResult.eSuccess) {
+                if (result == EnumExBrainResult.eSuccess)
+                {
                     // NFシステム 計測データ ストア準備開始
                     boolean logStartingResult = mNFMeasureDataManager.startStoreNFMeasureData(true, "NF_ExpLog", mBtAddress, mRestTime, mBaselineTime, mMovingAvgTime, mTrainingTime);
-                    if (logStartingResult) {
+                    if (logStartingResult)
+                    {
                         Log.d("LogStartingResult", "Success");
                     } else {
                         Log.d("LogStartingResult", "False");
@@ -626,7 +578,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         });
     }
 
-    void loggingData(DeviceMeasureData measureData) {
+    void loggingData(DeviceMeasureData measureData)
+    {
         // ロギング用データ準備
         ArrayList<Double> brainDoubleData = new ArrayList<>();
         ArrayList<Double> heartDoubleData = new ArrayList<>();
@@ -634,13 +587,13 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         ArrayList<Short> shortData = new ArrayList<>();
 
         // 計測データ
-        leftBrain = measureData.bloodHbIndexValues[0]; // 脳活動値(左, MD-ICA)
-        rightBrain = measureData.bloodHbIndexValues[1]; // 脳活動値(右, MD-ICA)
-        left3cmBrain = measureData.bloodHbDensities[1] - left3cmBaseline;
-        left1cmBrain = measureData.bloodHbDensities[0] - left1cmBaseline;
+        leftBrain     = measureData.bloodHbIndexValues[0];  // 脳活動値(左)
+        rightBrain    = measureData.bloodHbIndexValues[1]; // 脳活動値(右)
+        left3cmBrain  = measureData.bloodHbDensities[1] - left3cmBaseline;
+        left1cmBrain  = measureData.bloodHbDensities[0] - left1cmBaseline;
         right3cmBrain = measureData.bloodHbDensities[3] - right3cmBaseline;
         right1cmBrain = measureData.bloodHbDensities[2] - right1cmBaseline;
-        pulseRate = measureData.heartRate;
+        pulseRate     = measureData.heartRate;
         accX = measureData.motionAccValues[0];
         accY = measureData.motionAccValues[1];
         accZ = measureData.motionAccValues[2];
@@ -651,7 +604,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         Log.d("leftBrain", String.valueOf(leftBrain));
         Log.d("RightData", String.valueOf(rightBrain));
 
-        // Expモード(1: PreScan1, 2: PreScan2, 3: Training)の変更
+        // Expモード(0: Rest, 1: FB)の変更
         if (mExpModeFlag == 0)
         {
             mExpMode = 0;
@@ -685,9 +638,11 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                 }
 
                 // Baseline期間の終了時
-                if (mBaselineNumberCount == mBaselineDataNumber - 1) {
+                if (mBaselineNumberCount == mBaselineDataNumber - 1)
+                {
                     // Baseline期間における平均脳活動値(Baseline脳活動値)を算出
-                    for (int i = 0; i < mBaselineDataNumber; i++) {
+                    for (int i = 0; i < mBaselineDataNumber; i++)
+                    {
                         mLeftSumBrain += mLeftBaseline[i];
                         mRightSumBrain += mRightBaseline[i];
                     }
@@ -696,7 +651,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                     preScanRightBaseline = mRightSumBrain / mRightBaseline.length;
 
                     // NF期間前t秒間の脳活動値をBaseline補正(Baselineは1)
-                    for (int i = 0; i < mMovingAvgDataNumber; i++) {
+                    for (int i = 0; i < mMovingAvgDataNumber; i++)
+                    {
                         leftBrainDataset[i] = leftBrainDataset[i] - preScanLeftBaseline + 1;
                         rightBrainDataset[i] = rightBrainDataset[i] - preScanRightBaseline + 1;
                     }
@@ -704,9 +660,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
                     // NF Modeへの移行準備
                     mExpModeFlag = 1;
                     mMediaPlayerState = true;
-
-
-                    // カウントリセット
 
                 } else {
                     mBaselineNumberCount = mBaselineNumberCount + 1;
@@ -731,7 +684,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             rightAverageBrain = rightBrainDatasetSum / mMovingAvgDataNumber;
 
             // NF Mode開始の合図
-            if (mTrainingNumberCount == 0) {
+            if (mTrainingNumberCount == 0)
+            {
                 mNFVolume.trialBeepSound(mAudioManager, mMediaPlayer2);
 
                 mNFVolume.startVolume(mMediaPlayer1);
@@ -747,8 +701,10 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
             liBrain2 = (rightAverageBrain - leftAverageBrain) / (rightAverageBrain + leftAverageBrain);
 
             // t秒前の脳活動データセットをスライド
-            for (int i = 0; i < mMovingAvgDataNumber; i++) {
-                if (i != mMovingAvgDataNumber - 1) {
+            for (int i = 0; i < mMovingAvgDataNumber; i++)
+            {
+                if (i != mMovingAvgDataNumber - 1)
+                {
                     leftBrainDataset[i] = leftBrainDataset[i + 1];
                     rightBrainDataset[i] = rightBrainDataset[i + 1];
                 } else {
@@ -806,7 +762,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         shortData.add(mark);
 
         boolean LogStoringResult = mNFMeasureDataManager.entryStoredMeasureData(mResultCounter, brainDoubleData, heartDoubleData, motionDoubleData, shortData);
-        if (LogStoringResult) {
+        if (LogStoringResult)
+        {
             Log.d("LogStoringResult", "Success");
         } else {
             Log.d("LogStoringResult", "False");
@@ -890,9 +847,11 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     }
 
     // 白色雑音の音量を設定する
-    void setWhiteNoiseVolume(float volume) {
+    void setWhiteNoiseVolume(float volume)
+    {
         mWhiteNoiseVolume = volume;
-        if (mAudioTrack != null) {
+        if (mAudioTrack != null)
+        {
             mAudioTrack.setVolume((float) mWhiteNoiseVolume);
         }
     }
