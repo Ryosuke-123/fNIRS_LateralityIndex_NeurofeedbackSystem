@@ -62,7 +62,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     String mBaselineTime  = "";  // Time of Baseline Period
     String mMovingAvgTime = "";  // Time of Moving Average
     String mTrainingTime  = "";  // Time of Feedback Period
-    double mSamplingTime  = 0.1; // Sampling Time
+    double mSamplingTime  = 0.1; // Sampling Time[s]
 
     int mRestDataNumber      = 0;
     int mBaselineDataNumber  = 0;
@@ -483,14 +483,14 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         EnumExBrainConnectType connectType = deviceInfo.connectType;
 
         // アプリ上のサービス等を確認
-        if (connectType == EnumExBrainConnectType.eBluetooth) {
-            if (!mExBrainApi.isBtServiceConnected()) {
+        if (connectType == EnumExBrainConnectType.eBluetooth)
+        {
+            if (!mExBrainApi.isBtServiceConnected())
+            {
                 // Bluetoothサービス開始
                 Intent gattServiceIntent = new Intent(this, DriverBluetoothDevice.class);
                 bindService(gattServiceIntent, mExBrainApi.getServiceConnection(), BIND_AUTO_CREATE);
             }
-        } else if (connectType == EnumExBrainConnectType.eUsb) {
-
         }
 
         // APIによる装置接続
@@ -539,7 +539,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
 
             mBtAddress = connectHandleID;
 
-            try {
+            try
+            {
                 EnumExBrainResult result = mExBrainApi.startMeasure(connectHandleID, true);
 
                 if (result == EnumExBrainResult.eSuccess)
@@ -565,9 +566,11 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
     void stopDeviceMeasure() {
         // APIによる装置計測停止
         Executors.newCachedThreadPool().submit(() -> {
-            try {
+            try
+            {
                 EnumExBrainResult result = mExBrainApi.stopMeasure(mConnectedHandleID);
-                if (result == EnumExBrainResult.eSuccess) {
+                if (result == EnumExBrainResult.eSuccess)
+                {
                     Log.d("Measure", "Stop Measure");
                 } else {
 
@@ -587,7 +590,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         ArrayList<Short> shortData = new ArrayList<>();
 
         // 計測データ
-        leftBrain     = measureData.bloodHbIndexValues[0];  // 脳活動値(左)
+        leftBrain     = measureData.bloodHbIndexValues[0]; // 脳活動値(左)
         rightBrain    = measureData.bloodHbIndexValues[1]; // 脳活動値(右)
         left3cmBrain  = measureData.bloodHbDensities[1] - left3cmBaseline;
         left1cmBrain  = measureData.bloodHbDensities[0] - left1cmBaseline;
@@ -615,7 +618,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         {
             mExpMode = 1;
             mark = 1;
-            mCurrentState.setText("NF期間");
+            mCurrentState.setText("FB期間");
         }
 
         if (mExpMode == 0)      // Rest Mode
@@ -804,7 +807,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         return noiseData;
     }
 
-    void createWhiteNoise() {
+    void createWhiteNoise()
+    {
         int sampleRate = 44100;
         int duration = Integer.parseInt(mTrainingTime); // in seconds, 再生時間
         int numberOfSamples = sampleRate * duration;
@@ -822,7 +826,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener 
         double rms = p / Math.sqrt(2);
 
         // 再生時間分のノイズデータを作成
-        for (int i = 0; i < numberOfSamples; i++) {
+        for (int i = 0; i < numberOfSamples; i++)
+        {
             // ホワイトノイズを作成する
             double sample = random.nextGaussian() * rms;
             whiteNoise[i] = (byte) ((sample * 127.0) / rms);

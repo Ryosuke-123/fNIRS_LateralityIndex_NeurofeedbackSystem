@@ -26,8 +26,8 @@ public class NFMeasureDataLogger extends NFLogger
     /*-----計測データ一覧-----*/
     // 時刻:                       Device time
     // タイムスタンプ:               Headset time(sec)
-    // 脳活動値(左)                 HbT change(left,MD-ICA)
-    // 脳活動値(右)                 HbT change(right,MD-ICA)
+    // 脳活動値(左)                 HbT change(left)
+    // 脳活動値(右)                 HbT change(right)
     // 平均脳血流変化(左)             Average HbT change(left)
     // 平均脳血流変化(右)             Average HbT change(right)
     // 算出された側性化指標:           Calculate LI

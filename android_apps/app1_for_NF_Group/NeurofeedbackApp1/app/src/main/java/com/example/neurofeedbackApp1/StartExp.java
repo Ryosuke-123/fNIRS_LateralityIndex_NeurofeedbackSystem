@@ -63,19 +63,19 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
 
     boolean              mLoggingTrigger = false;
 
-    String               mBtAddress            = "";
-    String               mRestTime             = ""; // プレスキャンの時間
-    String               mBaselineTime         = ""; // Baseline定義時間
-    String               mMovingAvgTime        = ""; // 移動平均の時間幅
-    String               mTrainingTime         = ""; // トレーニングタイム
-    double               mSamplingTime         = 0.1; // サンプリング時間[s]
+    String               mBtAddress     = "";
+    String               mRestTime      = "";  // Time of Rest Period
+    String               mBaselineTime  = "";  // Time of Baseline Period
+    String               mMovingAvgTime = "";  // Time of Moving Average
+    String               mTrainingTime  = "";  // Time of Feedback Period
+    double               mSamplingTime  = 0.1; // Sampling Time[s]
 
-    int                  mRestDataNumber    = 0;
-    int                  mBaselineDataNumber   = 0;
-    int                  mMovingAvgDataNumber  = 0;
-    int                  mTrainingDataNumber   = 0;
+    int                  mRestDataNumber      = 0;
+    int                  mBaselineDataNumber  = 0;
+    int                  mMovingAvgDataNumber = 0;
+    int                  mTrainingDataNumber  = 0;
 
-    int                  mRestNumberCount   = 0;
+    int                  mRestNumberCount      = 0;
     int                  mBaselineNumberCount  = 0;
     int                  mMovingAvgNumberCount = 0;
     int                  mTrainingNumberCount  = 0;
@@ -91,8 +91,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
     NFMeasureDataManager mNFMeasureDataManager;
     int                  mResultCounter       = 0;   // サンプリングカウンタ
 
-    double               leftBrain            = 0.0; // 脳活動値(左, MD-ICA)
-    double               rightBrain           = 0.0; // 脳活動値(右, MD-ICA)
+    double               leftBrain            = 0.0; // 脳活動値(左)
+    double               rightBrain           = 0.0; // 脳活動値(右)
 
     double               left3cmBaseline      = 0.0; // 左3cmベースライン脳血流
     double               left1cmBaseline      = 0.0; // 左1cmベースライン脳血流
@@ -148,7 +148,6 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
 
     // ノイズ検出クラス
     DetectNoise mDetectNoise;
-    int         mMotionArtifactState = 0;
 
     TextView mCurrentState;
     TextView mLeftBrainValue;
@@ -263,34 +262,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
                     {
                         mWhiteNoiseVolume = (float) liTransToVolume(liBrain1);
                         setWhiteNoiseVolume(mWhiteNoiseVolume);
-
-                        // テキスト表示
-                        // mLeftBrainValue.setText(String.format("%.4f",leftAverageBrain));
-                        // mRightBrainValue.setText(String.format("%.4f",rightAverageBrain));
-                        // mLIBrainValue.setText(String.format("%.4f",liBrain1));
                     }
-
-                    // テキスト表示
-                    /*if (mMotionArtifactState == 1)
-                    {
-                        mLeftMotionArtifact.setText("異常");
-                        mRightMotionArtifact.setText("正常");
-                    }
-                    else if (mMotionArtifactState == 2)
-                    {
-                        mLeftMotionArtifact.setText("正常");
-                        mRightMotionArtifact.setText("異常");
-                    }
-                    else if (mMotionArtifactState == 3)
-                    {
-                        mLeftMotionArtifact.setText("異常");
-                        mRightMotionArtifact.setText("異常");
-                    }
-                    else
-                    {
-                        mLeftMotionArtifact.setText("正常");
-                        mRightMotionArtifact.setText("正常");
-                    }*/
                 }
 
                 @Override
@@ -334,7 +306,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
         mTrainingTime  = expSettingIntent.getStringExtra("trainingTime");
 
         /*-------------- 実験条件の反映 ------------*/
-        mRestDataNumber   = (int)(Integer.parseInt(mRestTime) / mSamplingTime);
+        mRestDataNumber      = (int)(Integer.parseInt(mRestTime) / mSamplingTime);
         mBaselineDataNumber  = (int)(Integer.parseInt(mBaselineTime) / mSamplingTime);
         mMovingAvgDataNumber = (int)(Integer.parseInt(mMovingAvgTime) / mSamplingTime);
         mTrainingDataNumber  = (int)(Integer.parseInt(mTrainingTime) / mSamplingTime);
@@ -608,7 +580,7 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
         {
             mExpMode = 1;
             mark     = 1;
-            mCurrentState.setText("NF期間");
+            mCurrentState.setText("FB期間");
         }
 
         if (mExpMode == 0)      // Rest Mode
@@ -747,8 +719,8 @@ public class StartExp extends AppCompatActivity implements View.OnClickListener
         }
 
         /*----------------------Logging用データ-----------------------*/
-        brainDoubleData.add(leftBrain);         // 脳活動値(左, MD-ICA)
-        brainDoubleData.add(rightBrain);        // 脳活動値(右, MD-ICA)
+        brainDoubleData.add(leftBrain);         // 脳活動値(左)
+        brainDoubleData.add(rightBrain);        // 脳活動値(右)
         brainDoubleData.add(leftAverageBrain);  // 過去t秒間の平均脳活動値(左)
         brainDoubleData.add(rightAverageBrain); // 過去t秒間の平均脳活動値(右)
         brainDoubleData.add(liBrain1);          // 算出されたLI値
