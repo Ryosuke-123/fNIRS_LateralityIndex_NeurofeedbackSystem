@@ -20,29 +20,36 @@ In order to conduct a placebo-controlled experiment for you, we developed two ap
 - Placebo App: [this releases page](https://github.com/Ryosuke-123/fNIRS_LateralityIndex_NeurofeedbackSystem/releases/tag/v1.0.0). <br>
 
 ### How to Use
-#### 1. Install the App
+#### 1. Bluetooth pairing with HOT-2000
+- HOT-2000 is attached to the head. <br>
+- Turn on the HOT-2000 power supply. <br>
+- Establish Bluetooth pairing with the HOT-2000 from the Android device setting. <br>
+
+#### 2. Install the App
 - **Download the APK file** for the desired app from the links above. <br>
 - **Transfer the APK file** to your Android device if downloaded on a computer. <br>
 - **Open the APK file** to your Android device to start the installation process. <br>
 - **Follow the on-screen instructions** to complete the installation. <br>
 
-#### 2. Launch the App
+#### 3. Launch the App
 - **Find the app icon** on your device's home screen or app drawer. <br>
 - **Tap the icon** to open the app.
 
-#### 3. Navigate Through the App
+#### 4. Navigate Through the App
 The app consists of 4 main screens. Here's a brief overview of each: <br>
 <p align="center">
     <img src="https://github.com/user-attachments/assets/e05f45ad-77f2-41e0-8b1d-6501188fd3c0" width="600px">
 </p>
 
-##### Screen 1: Home
+##### Screen 1: Start Screen
+Tap anywhere on the screen. <br>
 
-##### Screen 2: Experiment Setting
+##### Screen 2: Experiment Setting Screen
+After setting the "Restの時間" to 30, Baseline
 
-##### Screen 3: Device Connecting
+##### Screen 3: Device Connecting Screen
 
-##### Screen 4: Start Experiment
+##### Screen 4: Start Experiment Screen
 
 ## For who want to re-analyze our NF training Data
 In order to allow you to re-analyze the data obtained from our NF training experiment, we have shared the data in public repository (OpenNeuro). These data and our analysis scripts can be downloaded from the links below. <br>
