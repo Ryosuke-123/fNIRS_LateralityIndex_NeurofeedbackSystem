@@ -3,7 +3,11 @@
 ![](https://img.shields.io/badge/AndroidStudio-green)
 
 ## Publication
-TBU <br>
+- Journal: IEEE Access
+- Title: Development of an fNIRS-based neurofeedback system to modulate prefrontal asymmetry
+- Authors: Ryosuke Hiyama, Tatsuo Hirata, Hiroki Sato
+- URL: https://ieeexplore.ieee.org/document/10930884
+<br>
 
 ## For who want to use this NF App
 In order to conduct a placebo-controlled experiment for you, we developed two applications: an app that provides accurate neurofeedback (NF App) and an app that provides false neurofeedback (Placebo App). The source files for each app can be downloaded from the links below. <br>
