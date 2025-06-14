@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:ExBrainSdkAndroidLibrary:unspecified">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/ebfd1f182189f6bf990647ebc62148a0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/36ba0d83dc299fd198e213f78751a3d2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/2190ce146d32b740d391b3e063b7e364/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d0ef0a347c367dad38fe6c86d2bee51d/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/88ee696b366ca7dc27a8142c37ef7b95/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/dd4d79c4a55e4122c4615ac4d04e82a1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/368f0ddec7d7f8e997c3826148929cf4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/3132b17d0e156e87b9901e7b72bceee4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/67c9a59ae174ce2b05ec633193a0140f/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/eebfe44b0833f6d525798242c46b10e1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/689a3f401d5eb8ff1aae1986b1164d60/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/jars/libs/JTransforms-3.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/jars/libs/JLargeArrays-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/jars/libs/gson-2.7.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/524668b918a0b59a9dd63786c527100e/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/f4f49caa7ea82e2e0232f8f58bd24af6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d3299c03d902da48a1d9ac2146ec4cd5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/335e2af85cafcd02286903e9e3e9352f/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/jars/libs/JTransforms-3.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/jars/libs/gson-2.7.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/jars/libs/JLargeArrays-1.2.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ExBrainSdkAndroidLibrary_1.1.8.aar/d704e5f200a348219f82fa6f9cfc7319/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
