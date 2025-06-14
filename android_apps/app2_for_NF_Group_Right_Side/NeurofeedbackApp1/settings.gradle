@@ -1,0 +1,2 @@
+rootProject.name = "NeurofeedbackApp1"
+include ':app',':ExBrainSdkAndroidLibrary'
