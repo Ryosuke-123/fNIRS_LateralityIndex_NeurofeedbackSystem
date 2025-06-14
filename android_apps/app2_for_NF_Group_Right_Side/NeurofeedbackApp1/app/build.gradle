@@ -6,7 +6,7 @@ android {
     compileSdkVersion 26
 
     defaultConfig {
-        applicationId "com.example.neurofeedbackApp1"
+        applicationId "com.example.neurofeedbackApp2"
         minSdkVersion 24
         targetSdkVersion 26
         versionCode 1

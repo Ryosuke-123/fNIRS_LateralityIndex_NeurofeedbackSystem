@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.neurofeedbackApp1">
+    package="com.example.neurofeedbackApp2">
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.example.neurofeedbackApp1.MainActivity">
+        <activity android:name="com.example.neurofeedbackApp2.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,11 +30,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.neurofeedbackApp1.ExpSetting">
+        <activity android:name="com.example.neurofeedbackApp2.ExpSetting">
 
         </activity>
 
-        <activity android:name="com.example.neurofeedbackApp1.StartExp">
+        <activity android:name="com.example.neurofeedbackApp2.StartExp">
 
         </activity>
 

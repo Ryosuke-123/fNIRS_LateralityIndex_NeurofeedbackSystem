@@ -1,4 +1,4 @@
-package com.example.neurofeedbackApp1;
+package com.example.neurofeedbackApp2;
 
 import android.os.Environment;
 import android.util.Log;

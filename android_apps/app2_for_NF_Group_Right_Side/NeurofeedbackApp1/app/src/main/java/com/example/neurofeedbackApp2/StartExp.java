@@ -1,4 +1,4 @@
-package com.example.neurofeedbackApp1;
+package com.example.neurofeedbackApp2;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -13,8 +13,6 @@ import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -39,14 +37,8 @@ import com.neu.exbrainsdk.interfaces.bluetooth.DriverBluetoothDevice;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
-
-import javax.net.ssl.HandshakeCompletedEvent;
 
 public class StartExp extends AppCompatActivity implements View.OnClickListener
 {

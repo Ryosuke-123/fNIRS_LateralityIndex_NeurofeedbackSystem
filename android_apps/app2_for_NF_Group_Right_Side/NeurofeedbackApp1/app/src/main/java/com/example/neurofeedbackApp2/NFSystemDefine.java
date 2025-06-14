@@ -1,4 +1,4 @@
-package com.example.neurofeedbackApp1;
+package com.example.neurofeedbackApp2;
 
 // NFシステム 変数定義
 public class NFSystemDefine
