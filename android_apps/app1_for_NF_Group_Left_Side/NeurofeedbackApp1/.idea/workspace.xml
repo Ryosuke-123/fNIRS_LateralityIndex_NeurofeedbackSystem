@@ -30,13 +30,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="902e8c40-b443-4536-972f-8922b94c153b" name="Default Changelist" comment="" />
+    <list default="true" id="902e8c40-b443-4536-972f-8922b94c153b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../app2_for_NF_Group_Right_Side/NeurofeedbackApp1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app2_for_NF_Group_Right_Side/NeurofeedbackApp1/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@TE988B2ZM1C073922]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -172,11 +174,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="92" key="FileChooserDialogImpl" timestamp="1749875712203">
+    <state x="421" y="92" key="FileChooserDialogImpl" timestamp="1749876185600">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
     <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672/0.-1620.1920.1080@0.0.1280.672" timestamp="1741834892291" />
-    <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1749875712203" />
+    <state x="421" y="92" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1749876185600" />
     <state x="284" y="0" key="SettingsEditor" timestamp="1749875203800">
       <screen x="0" y="0" width="1280" height="672" />
     </state>
