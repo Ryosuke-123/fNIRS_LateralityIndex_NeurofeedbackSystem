@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_bg">#C0C0C0</color>
+    <color name="black">#000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="background">#ffffff</color>
+    <color name="text_foreground">#aaaaaa</color>
+    <color name="text_active_foreground">#c739a4</color>
+    <color name="text_heart">#ffffc7c7</color>
+    <color name="foreground">#000000</color>
+    <color name="color_green">#a4c739</color>
+    <color name="color_blue">#39A4C7</color>
+    <color name="color_orange">#ffffba20</color>
+    <color name="login_btn_default">#f4b770</color>
+    <color name="login_btn_selected">#80f4b770</color>
+    <color name="offline_btn_default">#607D8B</color>
+    <color name="gray_dark">#aaa</color>
+    <color name="dark_red">#B91007</color>
+</resources>
